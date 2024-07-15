@@ -45,31 +45,20 @@ document.querySelector('.check').addEventListener('click', function(){
       document.querySelector('.highscore').textContent=highScore;
     }
 }
-// when your number in too high 
-else if(guess>rnum){
-
+    //when guess is wrong...
+    else if(guess!=rnum){
   if(score>1){
 
-    document.querySelector(`.message`).textContent='too high...';
-    score--;
-    document.querySelector('.score').textContent=score;
-  }else{
-    document.querySelector(`.message`).textContent='game over...'
-  }
-  
+        document.querySelector(`.message`).textContent= guess<rnum ? 'too low...' : 'too high...';
+        score--;
+        document.querySelector('.score').textContent=score;
+      }else{
+        document.querySelector(`.message`).textContent='game over...';
+        document.querySelector('body').style.backgroundColor='red';
+      }
 }
-//when your number is too low
-else if(guess<rnum){
-if(score>1){
-  document.querySelector(`.message`).textContent='too low...';
-  score--;
-  document.querySelector('.score').textContent=score;
-}else{
-  document.querySelector(`.message`).textContent='game over...'
-}
-}
+ 
 
-  // console.log(guess);
 });
 document.querySelector('.again').addEventListener('click', function(){
   score=20;
